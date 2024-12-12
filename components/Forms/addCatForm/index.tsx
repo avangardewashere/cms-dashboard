@@ -10,13 +10,14 @@ interface ICatData {
   [key: string]: string;
 }
 
-const AddCatForm = function AddCatForm() {
-  const [catData, setCatData] = useState<ICatData>({
-    catName: "",
-    breed: "",
-    color: "",
-  });
+const initialValue = {
+  catName: "",
+  breed: "",
+  color: "",
+};
 
+const AddCatForm = function AddCatForm() {
+  const [catData, setCatData] = useState<ICatData>(initialValue);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // destructure the target values and names
     const { name, value } = e.target;
@@ -33,8 +34,14 @@ const AddCatForm = function AddCatForm() {
     { name: "color", placeholder: "Enter Cat Color" },
   ];
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert(JSON.stringify(catData));
+    setCatData(initialValue);
+  };
+
   return (
-    <form className={clsx(style.container)}>
+    <form onSubmit={handleSubmit} className={clsx(style.container)}>
       {inputFields.map((field) => {
         return (
           <input
