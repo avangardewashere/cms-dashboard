@@ -1,0 +1,28 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 8rem auto;
+
+  .tHeader {
+    display: flex;
+    .thItem {
+      width: 90rem;
+      text-align: left;
+      border: solid 1rem gray;
+      padding-inline: 4rem 0;
+      font-size: 15rem;
+      font-weight: 600;
+    }
+  }
+
+  .tBody {
+    display: flex;
+    .tbItem {
+      width: 90rem;
+      text-align: left;
+      border: solid 1rem gray;
+      padding-inline: 5rem 0;
+    }
+  }
+}
