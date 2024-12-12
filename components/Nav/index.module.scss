@@ -1,0 +1,26 @@
+.container {
+  width: 390rem;
+  background: #179fee;
+  height: 30rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10rem;
+  color: white;
+  font-size: 12rem;
+  align-items: center;
+  .label {
+    width: fit-content;
+	gap:10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .label {
+      div:first-child {
+      width: 14rem;
+      height: 14rem;
+      background: white;
+      border-radius: 50%;
+    }
+  }
+}
