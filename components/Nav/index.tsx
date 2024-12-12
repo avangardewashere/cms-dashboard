@@ -1,12 +1,13 @@
 import { memo } from "react";
 import clsx from "clsx";
 import style from "./index.module.scss";
+import ShowSide from "./showSide";
 
 const Nav = memo(function Nav() {
   return (
 	<nav className={clsx(style.container)}>
 	  <div className={clsx(style.label)}>
-		<div></div>
+		<ShowSide />
 		<div>API Provider</div>
 	  </div>
 	  <div>Dashboard</div>
