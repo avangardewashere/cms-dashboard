@@ -4,7 +4,7 @@ export const PostCatData = async (params: ICatData) => {
   const { catName, breed, color } = params;
   try {
     //fetch("http://localhost:3001/api/cat"
-    const response = await fetch("http://10.10.141.196:3001/api/cat", {
+    const response = await fetch("http://localhost:3001/api/cat", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -19,7 +19,7 @@ export const PostCatData = async (params: ICatData) => {
 
 export const GetCatData = async () => {
   try {
-    const res = await fetch("http://10.10.141.196:3001/api/cat", {
+    const res = await fetch("http://localhost:3001/api/cat", {
       cache: "no-store",
     });
 
@@ -29,14 +29,14 @@ export const GetCatData = async () => {
   }
 };
 
-export const DeleteCatData = async(id:string) =>{
+export const DeleteCatData = async (id: string) => {
   try {
-    const res = await fetch(`https://10.10.141.196/api/cat/${id}`,{
-      method:"DELETE"
-    })
-
+    const res = await fetch(`http://localhost:3001/api/cat?id=${id}`, {
+      method: "DELETE",
+    });
+    console.log("here", res);
     return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};

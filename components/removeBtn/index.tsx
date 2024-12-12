@@ -11,9 +11,13 @@ interface IRemoveBtn {
 export default function RemoveBtn({ id }: IRemoveBtn) {
   const router = useRouter();
 
-  const { runAsync: runAsyncDeleteCatData } = useRequest(() =>
-    DeleteCatData(id)
+  const { runAsync: runAsyncDeleteCatData } = useRequest(async() =>
+    await DeleteCatData(id),
+  {
+	manual:true
+  }
   );
+  
   const removeCatInfo = async () => {
     const confirmed = confirm("Are you sure to remove this information?");
 
@@ -28,7 +32,7 @@ export default function RemoveBtn({ id }: IRemoveBtn) {
   };
 
   return (
-    <button onClick={removeCatInfo}>
+    <button onClick={() =>removeCatInfo()}>
       <HiTrash size={"14rem"} />
     </button>
   );
