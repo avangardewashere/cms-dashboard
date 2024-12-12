@@ -15,3 +15,15 @@ export const PostCatData = async (params: ICatData) => {
     console.log(error);
   }
 };
+
+export const GetCatData = async () => {
+  try {
+    const res = await fetch("http://localhost:3001/api/cat", {
+      cache: "no-store",
+    });
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};

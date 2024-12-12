@@ -2,9 +2,10 @@ import { ICatData } from "@/components/Forms/addCatForm";
 import connectMongoDb from "@/libs/mongoDb";
 import Cat from "@/models/catSchema";
 import { NextResponse } from "next/server";
+
 export async function POST(req: Request) {
   try {
-    const data:ICatData = await req.json();
+    const data: ICatData = await req.json();
     const { catName, breed, color } = data;
 
     await connectMongoDb();
@@ -28,4 +29,10 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+}
+
+export async function GET() {
+  await connectMongoDb();
+  const cats = await Cat.find();
+  return NextResponse.json({ cats });
 }
