@@ -3,7 +3,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import style from "./index.module.scss";
 
-interface ICatData {
+export interface ICatData {
   catName: string;
   breed: string;
   color: string;
