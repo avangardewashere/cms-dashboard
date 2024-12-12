@@ -4,7 +4,7 @@ import clsx from "clsx";
 import style from "./index.module.scss";
 import { useRequest } from "ahooks";
 import { PostCatData } from "@/apiFetch";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export interface ICatData {
   catName: string;
@@ -59,6 +59,8 @@ const AddCatForm = function AddCatForm() {
 		throw new Error("Failed to create a new cat information.");
 	}
   };
+
+  console.log(data)
 
   return (
     <form onSubmit={handleSubmit} className={clsx(style.container)}>
