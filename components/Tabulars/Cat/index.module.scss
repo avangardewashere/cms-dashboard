@@ -14,25 +14,57 @@
       font-size: 15rem;
       font-weight: 600;
     }
+    .thItem:first-child {
+      width: 20rem;
+    }
+    .thItem:last-child {
+      width: 70rem;
+    }
   }
 
   .tBody {
     display: flex;
     .tbItem {
       width: 90rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
       text-align: left;
       border: solid 1rem gray;
-      padding-inline: 5rem 0;
+      padding: 4rem  0 4rem 5rem ;
+      
+    }
+    .tbItem:first-child {
+      width: 20rem;
+    }
+    .tbItem:last-child {
+      width: 70rem;
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+
+      > :first-child{
+        background:#74c01e;
+        padding:2rem 4rem;
+        border-radius: 2rem;
+        color:white;
+      }
+      > :last-child{
+        background: #cc5590;
+        padding:2rem 4rem;
+        border-radius: 2rem;
+        color:white;;
+      }
     }
   }
 }
 
-.addButton{
-	width:fit-content;
-	background:#74C01E ;
-	color:white;
-	border-radius: 4rem;
-	padding:6rem 12rem;
-	font-size:14rem;
-	margin:20rem 14rem;
+.addButton {
+  width: fit-content;
+  background: #74c01e;
+  color: white;
+  border-radius: 4rem;
+  padding: 6rem 12rem;
+  font-size: 14rem;
+  margin: 20rem 14rem;
 }

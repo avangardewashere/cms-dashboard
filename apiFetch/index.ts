@@ -18,7 +18,7 @@ export const PostCatData = async (params: ICatData) => {
 
 export const GetCatData = async () => {
   try {
-    const res = await fetch("http://localhost:3001/api/cat", {
+    const res = await fetch("http://10.10.141.196:3001/api/cat", {
       cache: "no-store",
     });
 
