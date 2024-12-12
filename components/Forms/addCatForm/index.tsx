@@ -2,6 +2,9 @@
 import { useState } from "react";
 import clsx from "clsx";
 import style from "./index.module.scss";
+import { useRequest } from "ahooks";
+import { PostCatData } from "@/apiFetch";
+import { useRouter } from "next/router";
 
 export interface ICatData {
   catName: string;
@@ -28,16 +31,33 @@ const AddCatForm = function AddCatForm() {
     }));
   };
 
+  const router = useRouter();
+
   const inputFields = [
     { name: "catName", placeholder: "Enter Cat Name" },
     { name: "breed", placeholder: "Enter Cat Breed" },
     { name: "color", placeholder: "Enter Cat Color" },
   ];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { data, runAsync: runAsyncPostCatData } = useRequest(() =>
+    PostCatData(catData)
+  );
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(JSON.stringify(catData));
-    setCatData(initialValue);
+    if (!catData.catName || !catData.color || !catData.breed) {
+      alert("Kindly Fill up the required fields");
+      return;
+    }
+    const res = await runAsyncPostCatData();
+    console.log("fetch post: ", res);
+
+    if (res?.ok) {
+      console.log("success,adding the fruit");
+      router.push("/");
+    }else{
+		throw new Error("Failed to create a new cat information.");
+	}
   };
 
   return (
