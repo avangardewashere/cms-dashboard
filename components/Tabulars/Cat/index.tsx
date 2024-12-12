@@ -2,6 +2,7 @@ import { memo } from "react";
 import clsx from "clsx";
 import style from "./index.module.scss";
 import SectionHeader from "@/components/sectionHeader";
+import Link from "next/link";
 
 const CatTabular = memo(function CatTabular() {
   return (
@@ -23,6 +24,10 @@ const CatTabular = memo(function CatTabular() {
           <div className={clsx(style.tbItem)}>Choco-Point</div>
         </div>
       </div>
+
+	  <div className={clsx(style.addButton)}>
+		<Link href={"/addCat"} >Add Data</Link>
+	  </div>
     </div>
   );
 });

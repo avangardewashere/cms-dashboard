@@ -1,0 +1,41 @@
+  .container{
+	transition: all .2s linear;
+	width:0rem;
+	height:0rem;
+	position: relative;
+
+  }
+.sidebar{
+	position: absolute;
+	inset:0;
+ 
+	height:100vh;
+	
+	//transition: all 1s linear;
+	background:rgba(144, 173, 217, 0.1);
+	backdrop-filter: blur(5rem);
+	border-right:#179fee .5rem solid;
+}
+
+.sidebarBody{
+	width:60% ;
+	height:100%;
+	background: #179fee;
+	padding:10rem 10rem;
+	color:white;
+	padding-top:20rem;
+	overflow: hidden;
+ 
+}
+
+.sidebarItem{
+	font-size:14rem;
+	background:white;
+	padding:2rem 4rem 2rem 8rem;
+	color:#179fee;
+	border-radius: 2rem;
+	user-select: none;
+
+}
+
+ 
