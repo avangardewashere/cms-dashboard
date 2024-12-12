@@ -1,7 +1,7 @@
 import { ICatData } from "@/components/Forms/addCatForm";
 import connectMongoDb from "@/libs/mongoDb";
 import Cat from "@/models/catSchema";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
@@ -35,4 +35,15 @@ export async function GET() {
   await connectMongoDb();
   const cats = await Cat.find();
   return NextResponse.json({ cats });
+}
+
+export async function DELETE(request: NextRequest) {
+  const id = request.nextUrl.searchParams.get("id");
+  await connectMongoDb();
+
+  await Cat.findByIdAndDelete(id);
+  return NextResponse.json(
+    { message: "Cat Information Deleted" },
+    { status: 200 }
+  );
 }

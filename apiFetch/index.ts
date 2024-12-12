@@ -3,7 +3,8 @@ import { ICatData } from "@/components/Forms/addCatForm";
 export const PostCatData = async (params: ICatData) => {
   const { catName, breed, color } = params;
   try {
-    const response = await fetch("http://localhost:3001/api/cat", {
+    //fetch("http://localhost:3001/api/cat"
+    const response = await fetch("http://10.10.141.196:3001/api/cat", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -27,3 +28,15 @@ export const GetCatData = async () => {
     console.log(error);
   }
 };
+
+export const DeleteCatData = async(id:string) =>{
+  try {
+    const res = await fetch(`https://10.10.141.196/api/cat/${id}`,{
+      method:"DELETE"
+    })
+
+    return res;
+  } catch (error) {
+    console.log(error)
+  }
+}

@@ -8,6 +8,7 @@ import { useRequest } from "ahooks";
 import { GetCatData } from "@/apiFetch";
 import { ICatData } from "@/components/Forms/addCatForm";
 import { HiPencil, HiTrash } from "react-icons/hi";
+import RemoveBtn from "@/components/removeBtn";
 
 const CatTabular = memo(function CatTabular() {
   const { data, loading } = useRequest(GetCatData);
@@ -38,9 +39,7 @@ const CatTabular = memo(function CatTabular() {
                   <Link href={`/edit/${item._id}`}>
                     <HiPencil size={"14rem"} />
                   </Link>
-                  <button>
-                    <HiTrash size={"14rem"} />
-                  </button>
+                  <RemoveBtn id={item._id} />
                 </div>
               </div>
             );
